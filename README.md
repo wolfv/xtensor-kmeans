@@ -26,7 +26,7 @@ Another difference is how slicing and views work in xtensor vs. blitz.
 In blitz++ you can use the following code to create a view into an array:
 
 ```cpp
-auto new = arr(blitz::Range::all(), blitz::Range(3, 5, 2));
+auto view = arr(blitz::Range::all(), blitz::Range(3, 5, 2));
 arr(blitz::Range(2, 4)) = 1;
 ```
 
