@@ -1,8 +1,9 @@
 > *About this repo*
+>
 > This repo is a port of the kmeans-algorithm contained in the bob framework 
 > by idiap. The dependency of blitz++ is removed, and xtensor is used in place. 
-> In this document, the key differences and changes of the port are documented.
-> Check out xtensor here: https://github.com/QuantStack/xtensor
+> In this document, the key differences and changes of the port are documented. <br>
+> Check out xtensor here: https://github.com/QuantStack/xtensor <br>
 > Original k-means source can be found here: https://gitlab.idiap.ch/bob/bob.learn.em
 
 # Porting blitz++ to xtensor
@@ -51,6 +52,7 @@ For example, `xt::arange(10)` creates `0, 1, 2, 3, 4, 5, 6, 7, 8, 9`.
 And `xt::broadcast(xt::arange(10), {3, 10})` would create an array of 
 
 ```cpp
+xt::broadcast(xt::arange(10), {3, 10})
 {
 	{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
 	{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
@@ -64,7 +66,7 @@ Also, broadcasting with `xt::newaxis` can be particularly powerful. For example,
 xt::xarray<double> a = xt::arange(3);
 
 auto res = xt::view(a, xt::all(), xt::newaxis()) * a
-// --> {{0, 0, 0},
-        {0, 1, 2},
-        {0, 2, 4}}
+{{0, 0, 0},
+ {0, 1, 2},
+ {0, 2, 4}}
 ```
